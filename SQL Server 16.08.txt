@@ -1,0 +1,38 @@
+criar banco de dados-create database (nome);
+
+tipos SQL Server
+*small int/int-numeros pequenos/numeros inteiros;
+*float/decimal-numeros decimais;
+*date/datetime-datas;
+*varchar(n)-texto;
+
+DDL
+*create;
+*alter;
+*drop;
+
+criar tabela-create table alunos
+(alu_ra int not null, 
+alu_nome varchar(50),
+alu__dtnasc date,
+alu_sex varchar(9),
+alu_altura float,
+cur_cod int,
+primary key (alu_ra),
+constraint(chave estrangeira)fk_curso foreign key (cur_cod) references cursos (cur_cod)
+);
+
+criar tabela-create table cursos
+(cur_cod int not null,
+cur_nome varchar(20),
+cur_CH smallint,
+primary key (cur_cod),
+
+create table grade 
+(alu_ra int,
+cur_cod int,
+primary key (alu_ra),
+primary key (cur_cod),
+constraint(chave estrangeira)grade foreign key (cur_cod) references cursos(cur_cod),
+constraint(chave estrangeira)grade foreign key (alu_ra) references alunos (alu_ra),
+);

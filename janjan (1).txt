@@ -1,0 +1,56 @@
+create database jandaia;
+
+creat table clientes
+(cli_cod int not null,
+cli_nome vachar(45),
+cli_email vachar(45),
+cli_cpf vachar(14),
+primary key (cli_cod),
+);
+
+creat table cidades
+(cid_cod int not null,
+cid_nome vachar(45),
+cid_uf vachar(2),
+cli_cod,
+primary key (cid_cod,cli_cod),
+constraint cli_cli foreign key (cli_cod) references cursos (cli_cod)
+);
+
+
+creat table cartoes
+(cart_cod int not null,
+cart_nome vachar(45),
+cart_tipo vachar(10),
+cli_cod int,
+primary key (cart_cod,cli_cod),
+constraint cli_cli foreign key (cli_cod) references cursos (cli_cod)
+);
+
+creat table onibus
+(oni_cod int not null,
+oni_linha vachar(45),
+oni_destino vachar(45),
+fun_cod,
+primary key (oni_cod,fun_cod),
+constraint fun_fun foreign key (fun_cod) references cursos (fun_cod)
+);
+
+creat table funcionarios
+(fun_cod int not null,
+fun_nome vachar(45),
+fun_funcao vachar(20),
+fun_email vachar(45),
+primary key (fun_cod),
+);
+
+creat table horarios
+(cid_cod int not null,
+oni_cod int not null,
+cid_hora vachar(45),
+primary key (cid_cod,oni_cod),
+constraint cid_cid foreign key (cid_cod) references cursos (cid_cod),
+constraint oni_oni foreign key (oni_cod) references cursos (oni_cod)
+);
+
+
